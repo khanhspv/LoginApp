@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity  implements  View.OnClickListener{
 
     private TextView tvUser;
     private Button btEdit;
@@ -22,18 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         tvUser =(TextView)findViewById(R.id.tvUserName);
         btEdit =(Button)findViewById(R.id.btEdit);
-        btEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()){
-            case R.id.btEdit:
-                onEidt();
-                break;
-            default:
-                break;
-        }
-            }
-        });
+        btEdit.setOnClickListener(this);
 
 
         Intent intent = getIntent();
@@ -41,16 +30,16 @@ public class ProfileActivity extends AppCompatActivity {
         tvUser.setText(username);
     }
 
-//    @Override
-//    public void onClick(View view){
-//        switch (view.getId()){
-//            case R.id.btEdit:
-//                onEidt();
-//                break;
-//            default:
-//                break;
-//        }
-//    }
+    @Override
+    public void onClick(View view){
+        switch (view.getId()){
+            case R.id.btEdit:
+                onEidt();
+                break;
+            default:
+                break;
+        }
+    }
 
     private void onEidt(){
         Intent intent = new Intent(this, EditiUserActivity.class);

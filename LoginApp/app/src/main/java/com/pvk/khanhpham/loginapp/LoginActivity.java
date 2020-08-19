@@ -9,51 +9,34 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText edUser;
     private EditText edPassword;
     private Button btLogin;
 
-    private void anhxa() {
-        edUser = (EditText) findViewById(R.id.edUser);
-        edPassword = (EditText) findViewById(R.id.edPassword);
-        btLogin = (Button) findViewById(R.id.btLogin);
-    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        edUser = (EditText) findViewById(R.id.edUser);
+        edPassword = (EditText) findViewById(R.id.edPassword);
+        btLogin = (Button) findViewById(R.id.btLogin);
+        btLogin.setOnClickListener(this);
+    }
 
-        anhxa();
-
-        btLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-        switch (v.getId()){
+    @Override
+    public void onClick(View view){
+        switch (view.getId()){
             case R.id.btLogin:
                 onLogin();
                 break;
             default:
                 break;
         }
-            }
-        });
     }
-
-//    @Override
-//    public void onClick(View view){
-//        switch (view.getId()){
-//            case R.id.btLogin:
-//                onLogin();
-//                break;
-//            default:
-//                break;
-//        }
-//    }
-
 
 
 
